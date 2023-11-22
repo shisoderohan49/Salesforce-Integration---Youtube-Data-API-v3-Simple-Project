@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Youtube Data API Integration">
+        <lightning-button label="Search" slot="actions" onclick={getSearchKeyResults}></lightning-button>
+        <p class="slds-p-around_small">
+            <lightning-input label="Channel Id" type="text" required="true" class="slds-p-bottom_small" value={channelId} onchange={handleChannelIdChange}></lightning-input>
+            <lightning-input label="Maximum Results" type="number" min="1" step="1" required="true" class="slds-p-bottom_small" value={maxResults} onchange={handleMaxResultsChange}></lightning-input>
+            <lightning-input label="Search String" type="text" required="true" class="slds-p-bottom_small" value={searchString} onchange={handleSearchStringChange}></lightning-input>
+            <lightning-combobox label="Order of Results" value={order} placeholder="Select Order" options={orderOptions} onchange={handleOrderChange}></lightning-combobox>
+        </p>
+        <div style="height:410px">
+            <c-image-data-table data={tableData} columns={columns} key-field="urlLink" show-row-number-column hide-checkbox-column></c-image-data-table>
+        </div>
+    </lightning-card>
+</template>
